@@ -6,7 +6,7 @@ import no.hib.dat102.mengde.tabell.TabellMengde;
 public class KlientBingo {
 	// Oppretter 2 mengder med 75 bingokuler i hver.
 	// Tester om en spesiell bingokule er med i den ene mengden,
-	// og om de to mengdene er nøyaktig like.
+	// og om de to mengdene er nï¿½yaktig like.
 
 	public static void main(String[] a) {
 		final int ANTALL_BALLER = 75;
@@ -22,7 +22,7 @@ public class KlientBingo {
 			minMengde2.leggTil(kule2);
 		}
 
-		System.out.println("\nAntall kuler totalt: " + minMengde1.antall());
+		System.out.println("\nAntall kuler totalt:   " + minMengde1.antall());
 		System.out.println();
 
 		kule1 = new Bingokule(10);

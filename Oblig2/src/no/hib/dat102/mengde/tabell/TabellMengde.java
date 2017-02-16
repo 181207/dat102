@@ -67,6 +67,14 @@ public class TabellMengde<T> implements MengdeADT<T> {
 		// S�ker etter og fjerner element.Retur med null ved ikke-funn
 		//
 		T svar = null;
+		for (int i = 0; i < tab.length; i++){
+			if (tab[i].equals(element)){
+				svar = tab[i];
+				tab[i] = tab[i-1];
+				antall--;
+				
+			}
+		}
 		
 		return svar;	
 	}
@@ -109,7 +117,16 @@ public class TabellMengde<T> implements MengdeADT<T> {
 	public boolean erLik(MengdeADT<T> m2) {
 		boolean likeMengder = true;
 		T element;
-     //...Fyll ut
+		if (antall == m2.antall()){
+			for (int i = 0; i < tab.length; i++){
+				if (!m2.inneholder(tab[i]) && likeMengder){
+					likeMengder = false;
+				}
+			}
+		}
+		else{
+			likeMengder = false;
+		}
 		return likeMengder;
 	}
 

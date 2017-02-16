@@ -58,19 +58,25 @@ public void leggTilAlle(MengdeADT<T> m2) {
     forgjenger.setNeste(aktuell.getNeste());
    }
    antall--;
-  }// if
+  }
   return resultat;
- }//
+ }
 
- 
+
  @Override
  public T fjern(T element) {
   boolean funnet = false;
   LinearNode<T> forgjenger, aktuell = null;
   T resultat = null;
-  //...Fyll ut
+  if(!erTom()){
+	  aktuell = start;
+	  while(aktuell != element){
+		  forgjenger = aktuell;
+		  aktuell = aktuell.getNeste();
+	  }
+  }
   return resultat;
- }//
+ }
 
  @Override
  public MengdeADT<T> union(MengdeADT<T> m2) {// OBS! En bedre i kladdeopg4
@@ -114,10 +120,26 @@ public void leggTilAlle(MengdeADT<T> m2) {
  
  @Override
  public boolean erLik(MengdeADT<T> m2) {
-  boolean likeMengder = true;
-  T element = null;
-  //...Fyll ut
-  return likeMengder
+	 boolean likeMengder = true;
+	 T element = null;
+	 if (m2.antall() == antall){
+		 LinearNode<T> forgjenger, aktuell = null;
+		 aktuell = start;
+		 while(likeMengder){
+			 if(!m2.inneholder(aktuell.getElement())){
+				 likeMengder = false;
+			 }
+			 forgjenger = aktuell;
+			 aktuell = aktuell.getNeste();
+		 }
+	 }
+	 else{
+		 likeMengder = false;
+	 }
+
+	 
+	  
+	 return likeMengder;
  }
 
  
@@ -136,5 +158,4 @@ public void leggTilAlle(MengdeADT<T> m2) {
  public Iterator<T> oppramser() {
   return new KjedetIterator<T>(start);
  }
-
-}// class
+}
